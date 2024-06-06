@@ -45,10 +45,17 @@ function TextExpander({
 }) {
   const [isExpanded, setIsExpanded] = useState(expanded);
   const displayText = isExpanded ? children : "test";
+
+  function handletoggleExpand() {
+    setIsExpanded((ex) => !ex);
+  }
+
   return (
     <div className={className ? className : ""}>
       {displayText}
-      <button>{isExpanded ? collapseButtonText : expandButtonText}</button>
+      <button onClick={handletoggleExpand}>
+        {isExpanded ? collapseButtonText : expandButtonText}
+      </button>
     </div>
   );
 }
